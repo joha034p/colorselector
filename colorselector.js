@@ -6,29 +6,34 @@ function start(){
     document.querySelector("#pickColor").addEventListener("mousedown", getValue);
 }
 
+// Get value of the input - call functions which return manipulated data
 function getValue(){
     const colorValue = document.querySelector("#pickColor").value;
     const callHexValue = hexValue(colorValue);
     const callHexToRGB = hexToRGB(colorValue);
     const callRGBtoHSL = RGBtoHSL(colorValue);
+    console.log(callHexValue);
     console.log(callHexToRGB);
     console.log(callRGBtoHSL);
 }
 
+// Display the input value as HEX
 function hexValue(colorValue){
     console.log("hexValue");
-    return {colorValue};
+    const hex = colorValue.toString(16);
+    return {hex};
 }
 
+// Convert the input value from HEX to RGB
 function hexToRGB(colorValue){
     console.log("hexToRGB");
     const r = parseInt(colorValue.substring(1,3), 16);
     const g = parseInt(colorValue.substring(3,5), 16);
     const b = parseInt(colorValue.substring(5,7), 16);
-
     return {r,g,b};
 }
 
+// Convert the input value from RGB to HSL
 function RGBtoHSL(colorValue){
     console.log("RGBtoHSL");
     let r = parseInt(colorValue.substring(1,3), 16);
