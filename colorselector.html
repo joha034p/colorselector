@@ -5,18 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Selector</title>
+    <link rel="stylesheet" href="colorselector.css">
 </head>
 <body>
-    <input type="color" id="pickColor">
-<div id="rgb">
-    <p></p>
+    <section id="colorSection">
+    <div id="displayColor"></div>
+    <div id="inputWrapper">
+        <p>Select A Color</p>
+    <input id="pickColor" type="color">
+    </div>
+    </section>
+
+<div id="txtWrapper">
+        <p id="hex">hex</p>
+        <p id="rgb">rgb</p>
+        <p id="hsl">hsl</p>
 </div>
-<div id="hsl">
-    <p></p>
-</div>
-<div id="hex">
-    <p></p>
-</div>
-    <script src=""></script>
+    <script src="colorselector.js"></script>
 </body>
 </html>
