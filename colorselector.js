@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", start);
 
 function start(){
     console.log("start");
-    document.querySelector("#pickColor").addEventListener("mousedown", getValue);
+    document.querySelector("#pickColor").addEventListener("input", getValue);
 }
 
 // Get value of the input - call functions which return manipulated data
@@ -15,6 +15,11 @@ function getValue(){
     console.log(callHexValue);
     console.log(callHexToRGB);
     console.log(callRGBtoHSL);
+
+    const hex = colorValue;
+    document.getElementById("displayColor").style.backgroundColor = hex;
+    document.getElementById("hex").innerHTML = "HEX: " + hex;
+    
 }
 
 // Display the input value as HEX
@@ -30,6 +35,7 @@ function hexToRGB(colorValue){
     const r = parseInt(colorValue.substring(1,3), 16);
     const g = parseInt(colorValue.substring(3,5), 16);
     const b = parseInt(colorValue.substring(5,7), 16);
+    document.getElementById("rgb").innerHTML = `RGB: ${r}, ${g}, ${b}`;
     return {r,g,b};
 }
 
@@ -73,7 +79,13 @@ function RGBtoHSL(colorValue){
    // multiply s and l by 100 to get the value in percent, rather than [0,1]
    s *= 100;
    l *= 100;
+
+   h = Math.round(h) + "%";
+   s = Math.round(s) + "%";
+   l = Math.round(l) + "%";
  
+   document.getElementById("hsl").innerHTML = `HSL: ${h}, ${s}, ${l}`;
    return {h,s,l};
 //    console.log("hsl(%f,%f%,%f%)", h, s, l);
 }
+
